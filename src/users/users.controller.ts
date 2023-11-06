@@ -1,5 +1,5 @@
 import { Controller, Post, Body, Get, Request } from '@nestjs/common';
-import { UsersI } from 'src/interfaces/users.interface';
+import { UserI } from 'src/interfaces/users.interface';
 import { UsersService } from './users.service';
 import { Public } from 'src/auth/constants';
 
@@ -9,13 +9,13 @@ export class UsersController {
 
   @Public()
   @Post('register')
-  async registerUser(@Body() userInfo: UsersI) {
+  async registerUser(@Body() userInfo: UserI) {
     const user = await this.userService.userRegistration(userInfo);
     return user;
   }
 
   @Get('home')
-  async userHome(@Request() req) {     
+  async userHome(@Request() req) {
     const home = await this.userService.userHome(req.user.userId);
     return home;
   }

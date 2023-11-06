@@ -6,6 +6,6 @@ config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  await app.listen(3000);
+  await app.listen(process.env.API_SERVICE_PORT);
 }
 bootstrap();

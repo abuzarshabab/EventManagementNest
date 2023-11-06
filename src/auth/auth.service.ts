@@ -5,7 +5,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 
-import { UsersI } from '../interfaces/users.interface';
+import { UserI } from '../interfaces/users.interface';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -14,7 +14,7 @@ import { JwtService } from '@nestjs/jwt';
 export class AuthService {
   constructor(
     @Inject('USER_MODEL')
-    private userModel: Model<UsersI>,
+    private userModel: Model<UserI>,
     private jwtService: JwtService,
   ) {}
 
